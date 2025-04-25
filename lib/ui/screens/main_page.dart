@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prime_video_clone/ui/screens/downloads/downloads_screen.dart';
 import 'package:prime_video_clone/ui/screens/home/home_screen.dart';
 import 'package:prime_video_clone/ui/screens/prime/prime_page.dart';
+import 'package:prime_video_clone/ui/screens/search/search_screen.dart';
 import 'package:prime_video_clone/ui/screens/subscriptions/subscription_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -19,6 +20,7 @@ class _MainScreenState extends State<MainScreen> {
     PrimeScreen(),
     SubscriptionScreen(),
     DownloadsScreen(),
+    SearchScreen(),
   ];
 
   final List<String> _titles = [
