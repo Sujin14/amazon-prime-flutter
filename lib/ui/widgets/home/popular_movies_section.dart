@@ -32,8 +32,6 @@ class PopularMoviesSection extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: 8),
-              Icon(Icons.arrow_forward_ios, color: Colors.white, size: 14),
             ],
           ),
         ),

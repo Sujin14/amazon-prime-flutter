@@ -40,7 +40,7 @@ class WatchForFreeMostPopularShowsSection extends StatelessWidget {
             children: const [
               Expanded(
                 child: Text(
-                  'Watch for free - Most Popular Shows',
+                  'Watch for free - Most Popular Shows >',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -50,7 +50,6 @@ class WatchForFreeMostPopularShowsSection extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 8),
-              Icon(Icons.arrow_forward_ios, color: Colors.white, size: 14),
             ],
           ),
         ),

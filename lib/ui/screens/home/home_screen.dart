@@ -3,7 +3,6 @@ import 'package:prime_video_clone/ui/widgets/home/category_buttons.dart';
 import 'package:prime_video_clone/ui/widgets/home/hero_banner.dart';
 import 'package:prime_video_clone/ui/widgets/home/most_popular_shows.dart';
 import 'package:prime_video_clone/ui/widgets/home/popular_movies_section.dart';
-import 'package:prime_video_clone/ui/widgets/home/top_nav_bar.dart';
 import 'package:prime_video_clone/ui/widgets/home/watch_in_your_language_section.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,8 +16,6 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: const [
-              TopNavBarWidget(),
-              SizedBox(height: 12),
               CategoryButtonsWidget(),
               SizedBox(height: 16),
               HeroBannerWidget(),
@@ -28,7 +25,6 @@ class HomeScreen extends StatelessWidget {
               WatchInYourLanguageSection(),
               SizedBox(height: 16),
               WatchForFreeMostPopularShowsSection(),
-              // Further movie sections will be added below
             ],
           ),
         ),
