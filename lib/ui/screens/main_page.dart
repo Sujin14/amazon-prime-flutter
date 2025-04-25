@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prime_video_clone/ui/screens/home/home_screen.dart';
+import 'package:prime_video_clone/ui/screens/prime/prime_page.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -11,7 +12,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = const [HomeScreen()];
+  final List<Widget> _screens = const [HomeScreen(), PrimeScreen()];
 
   final List<String> _titles = [
     'Home',
