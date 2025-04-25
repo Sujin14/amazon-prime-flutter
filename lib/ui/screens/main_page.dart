@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:prime_video_clone/ui/screens/downloads/downloads_screen.dart';
 import 'package:prime_video_clone/ui/screens/home/home_screen.dart';
 import 'package:prime_video_clone/ui/screens/prime/prime_page.dart';
+import 'package:prime_video_clone/ui/screens/subscriptions/subscription_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -12,7 +14,12 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = const [HomeScreen(), PrimeScreen()];
+  final List<Widget> _screens = const [
+    HomeScreen(),
+    PrimeScreen(),
+    SubscriptionScreen(),
+    DownloadsScreen(),
+  ];
 
   final List<String> _titles = [
     'Home',
@@ -37,7 +44,11 @@ class _MainScreenState extends State<MainScreen> {
         elevation: 0,
         title: Text(
           _titles[_selectedIndex],
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 26,
+            fontWeight: FontWeight.bold, // Make the text bold
+          ),
         ),
         actions: [
           IconButton(
