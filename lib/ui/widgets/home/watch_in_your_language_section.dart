@@ -1,111 +1,142 @@
 import 'package:flutter/material.dart';
+import 'package:prime_video_clone/data/model/movie_model.dart';
+import 'package:prime_video_clone/data/services/movie_services.dart';
+import 'package:prime_video_clone/common/details_page.dart'; // <-- Add this import
 
-class WatchInYourLanguageSection extends StatelessWidget {
+class WatchInYourLanguageSection extends StatefulWidget {
   const WatchInYourLanguageSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final List<Map<String, String>> languageMovies = [
-      {
-        'image':
-            'https://images.indianexpress.com/2025/03/Empuraan-Movie-Review-and-Rating-Mohanlal-Prithviraj-Sukumaran-2.jpg',
-        'language': 'Malayalam',
-      },
-      {
-        'image':
-            'https://images.indianexpress.com/2025/03/Empuraan-Movie-Review-and-Rating-Mohanlal-Prithviraj-Sukumaran-2.jpg',
-        'language': 'Hindi',
-      },
-      {
-        'image':
-            'https://images.indianexpress.com/2025/03/Empuraan-Movie-Review-and-Rating-Mohanlal-Prithviraj-Sukumaran-2.jpg',
-        'language': 'Tamil',
-      },
-      {
-        'image':
-            'https://images.indianexpress.com/2025/03/Empuraan-Movie-Review-and-Rating-Mohanlal-Prithviraj-Sukumaran-2.jpg',
-        'language': 'Telugu',
-      },
-    ];
+  _WatchInYourLanguageSectionState createState() =>
+      _WatchInYourLanguageSectionState();
+}
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 20),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Expanded(
-                child: Text(
-                  'Watch in your language',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-              ),
-              SizedBox(width: 8),
-            ],
-          ),
-        ),
-        const SizedBox(height: 12),
-        SizedBox(
-          height: 140, // Adjusted height to match the movie image
-          child: ListView.separated(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            scrollDirection: Axis.horizontal,
-            itemCount: languageMovies.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 12),
-            itemBuilder: (context, index) {
-              final item = languageMovies[index];
-              return ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: SizedBox(
-                  width: 100, // Set desired width
-                  height: 140, // Set desired height
-                  child: Stack(
-                    alignment: Alignment.bottomLeft,
-                    children: [
-                      Image.network(
-                        item['image']!,
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: double.infinity,
-                      ),
-                      Positioned(
-                        left: 8,
-                        bottom: 8,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 6,
-                            vertical: 2,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.7),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Text(
-                            item['language']!,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
+class _WatchInYourLanguageSectionState
+    extends State<WatchInYourLanguageSection> {
+  late Future<List<Movie>> futureMovies;
+
+  @override
+  void initState() {
+    super.initState();
+    futureMovies = MovieService().fetchMovies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<List<Movie>>(
+      future: futureMovies,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(child: Text('Error: ${snapshot.error}'));
+        } else if (snapshot.hasData) {
+          final movies = snapshot.data!;
+          final languageMovies =
+              [
+                movies
+                    .where((movie) => movie.language == 'Malayalam')
+                    .firstOrNull,
+                movies.where((movie) => movie.language == 'Hindi').firstOrNull,
+                movies.where((movie) => movie.language == 'Tamil').firstOrNull,
+                movies.where((movie) => movie.language == 'Telugu').firstOrNull,
+              ].where((movie) => movie != null).cast<Movie>().toList();
+
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Expanded(
+                      child: Text(
+                        'Watch in your language',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              );
-            },
-          ),
+              ),
+              const SizedBox(height: 12),
+              _buildLanguageMovies(languageMovies),
+            ],
+          );
+        } else {
+          return const Center(child: Text('No data available'));
+        }
+      },
+    );
+  }
+
+  Widget _buildLanguageMovies(List<Movie> movies) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children:
+              movies.map((movie) {
+                return Padding(
+                  padding: const EdgeInsets.only(right: 12),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => MovieDetailsPage(movie: movie),
+                        ),
+                      );
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: SizedBox(
+                        width: 100,
+                        height: 140,
+                        child: Stack(
+                          alignment: Alignment.bottomRight,
+                          children: [
+                            Image.network(
+                              movie.image,
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: double.infinity,
+                            ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 6,
+                                vertical: 2,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              margin: const EdgeInsets.all(4),
+                              child: Text(
+                                movie.language,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              }).toList(),
         ),
-      ],
+      ),
     );
   }
 }

@@ -13,8 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 4), () {
-      // TODO: Replace this with actual navigation
+    Timer(const Duration(seconds: 1), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) => const MainScreen()),
@@ -24,11 +23,16 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      body: SizedBox.expand(
-        child: Image.network(
-          'https://img.asmedia.epimg.net/resizer/v2/67V32QCJUBGBDGARNEKSSC3DXY.jpg?auth=e8aea9ed34ace325a14493c87c7e36da405ceac6e0ab08127dff6e155b5fe576&width=644&height=362&smart=true',
-          fit: BoxFit.cover,
+      backgroundColor: Colors.black,
+      body: Center(
+        child: SizedBox(
+          width: screenWidth * 0.6,
+          height: screenHeight * 0.3,
+          child: Image.asset('assets/images/logo1.jpg', fit: BoxFit.contain),
         ),
       ),
     );

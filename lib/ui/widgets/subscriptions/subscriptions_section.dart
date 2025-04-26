@@ -1,55 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:prime_video_clone/common/details_page.dart';
-import 'dart:math';
 import 'package:prime_video_clone/data/model/movie_model.dart';
 import 'package:prime_video_clone/data/services/movie_services.dart';
 
-class TopMoviesSection extends StatefulWidget {
-  const TopMoviesSection({super.key});
+class SubscriptionsSection extends StatefulWidget {
+  const SubscriptionsSection({super.key});
 
   @override
-  State<TopMoviesSection> createState() => _TopMoviesSectionState();
+  State<SubscriptionsSection> createState() => _SubscriptionsSectionState();
 }
 
-class _TopMoviesSectionState extends State<TopMoviesSection> {
-  late Future<List<Movie>> futureTopMovies;
+class _SubscriptionsSectionState extends State<SubscriptionsSection> {
+  final MovieService _movieService = MovieService();
+  late Future<List<Movie>> _futureMovies;
 
   @override
   void initState() {
     super.initState();
-    futureTopMovies = _fetchRandomTopMovies();
+    _futureMovies = _fetchRandomMovies();
   }
 
-  Future<List<Movie>> _fetchRandomTopMovies() async {
-    final movies = await MovieService().fetchMovies();
-    movies.shuffle(Random());
-    return movies.take(5).toList();
+  Future<List<Movie>> _fetchRandomMovies() async {
+    final movies = await _movieService.fetchMovies();
+    movies.shuffle(); // Shuffle the list to get random movies
+    return movies.take(6).toList(); // Limit to 6 items
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Movie>>(
-      future: futureTopMovies,
+      future: _futureMovies,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return const SizedBox(
+            height: 140,
+            child: Center(child: CircularProgressIndicator()),
+          );
         } else if (snapshot.hasError) {
-          return Center(child: Text('Error: ${snapshot.error}'));
+          return Center(child: Text("Error: ${snapshot.error}"));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const Center(child: Text('No movies available'));
+          return const Center(child: Text("No subscription content"));
         }
 
-        final topMovies = snapshot.data!;
+        final movies = snapshot.data!;
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Expanded(
                     child: Text(
                       'Top Movies',
@@ -70,33 +73,25 @@ class _TopMoviesSectionState extends State<TopMoviesSection> {
               child: ListView.separated(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 scrollDirection: Axis.horizontal,
-                itemCount: topMovies.length,
+                itemCount: movies.length,
                 separatorBuilder: (_, __) => const SizedBox(width: 12),
                 itemBuilder: (context, index) {
-                  final movie = topMovies[index];
+                  final movie = movies[index];
                   return InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MovieDetailsPage(movie: movie),
+                    onTap:
+                        () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) => MovieDetailsPage(movie: movie),
+                          ),
                         ),
-                      );
-                    },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: SizedBox(
                         width: 150,
                         height: 80,
-                        child: Image.network(
-                          movie.image,
-                          fit: BoxFit.cover,
-                          errorBuilder:
-                              (context, error, stackTrace) => const Icon(
-                                Icons.broken_image,
-                                color: Colors.grey,
-                              ),
-                        ),
+                        child: Image.network(movie.image, fit: BoxFit.cover),
                       ),
                     ),
                   );

@@ -1,0 +1,166 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "image": "https://preview.redd.it/empuraan-assumptions-and-speculations-on-the-plot-v0-jvl19nh4yree1.jpg?width=900&format=pjpg&auto=webp&s=dc971f3eebd448831d2c74ee067b973481517731",
+      "name": "L2 Empuraan",
+      "language": "Malayalam",
+      "genre": "Action",
+      "releaseYear": 2025,
+      "description": "A high-stakes political thriller following the rise of a mysterious power broker in Indian politics."
+    },
+    {
+      "id": 2,
+      "image": "https://i.ytimg.com/vi/zQb5NuphxyQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC2riJlgwKkc9ModK8yS5i1OSBvmQ",
+      "name": "Babygirl",
+      "language": "English",
+      "genre": "Romantic Drama",
+      "releaseYear": 2023,
+      "description": "A young woman battles societal norms and personal identity while navigating love and heartbreak."
+    },
+    {
+      "id": 3,
+      "image": "https://images.radiocity.in/Radiocity-images/images/uploads/web-stories/chhorii-2-review-april11-1_ws.png",
+      "name": "CHhorri 2",
+      "language": "Hindi",
+      "genre": "Horror Thriller",
+      "releaseYear": 2024,
+      "description": "A pregnant woman returns to confront supernatural horrors from her past."
+    },
+    {
+      "id": 4,
+      "image": "https://m.media-amazon.com/images/M/MV5BNjUxNjk5NzAtMTU3Yy00YTBkLThlYWYtMWI5ZmM0MGZjZDE2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      "name": "Veera Dheera Shooran",
+      "language": "Tamil",
+      "genre": "Action Drama",
+      "releaseYear": 2023,
+      "description": "A fearless warrior defies corruption and fights for justice in a dystopian society."
+    },
+    {
+      "id": 5,
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e7/Campus_Beats.jpg/250px-Campus_Beats.jpg",
+      "name": "Campus Beats",
+      "language": "Telugu",
+      "genre": "Musical Romance",
+      "releaseYear": 2022,
+      "description": "Set in a vibrant college campus, a group of students discover love and purpose through dance."
+    },
+    {
+      "id": 6,
+      "image": "https://m.media-amazon.com/images/M/MV5BM2Q2YTczM2QtNDBkNC00M2I5LTkyMzgtOTMwNzQ0N2UyYWQ0XkEyXkFqcGc@._V1_.jpg",
+      "name": "Drishyam 2",
+      "language": "Malayalam",
+      "genre": "Crime Thriller",
+      "releaseYear": 2021,
+      "description": "A man tries to protect his family while the past threatens to unravel his carefully buried secrets."
+    },
+    {
+      "id": 7,
+      "image": "https://sund-images.sunnxt.com/9999/1000x1500_Arya2_9999_04f2bada-03ea-446b-86ee-b21c9607f8bd.jpg",
+      "name": "Aarya 2",
+      "language": "Telugu",
+      "genre": "Romantic Action",
+      "releaseYear": 2009,
+      "description": "A love triangle unfolds between two best friends and a girl, with intense emotional twists."
+    },
+    {
+      "id": 8,
+      "image": "https://m.media-amazon.com/images/S/pv-target-images/b4992de01b95e89a2f7e7298ff661cd772e9223bd72a965d94bbb53b1439a78c.jpg",
+      "name": "96",
+      "language": "Tamil",
+      "genre": "Romantic Drama",
+      "releaseYear": 2018,
+      "description": "Two high school sweethearts reunite years later at a reunion, stirring old emotions and memories."
+    },
+    {
+      "id": 9,
+      "image": "https://images.moviebuff.com/0ef7361d-7cf7-44c0-a991-135b1da16312?w=600",
+      "name": "DJ",
+      "language": "Telugu",
+      "genre": "Action Comedy",
+      "releaseYear": 2017,
+      "description": "A Brahmin cook with a secret vigilante life fights crime while managing his dual identities."
+    },
+    {
+      "id": 10,
+      "image": "https://i.redd.it/czjs2futsiod1.jpeg",
+      "name": "Nunakkuzhi",
+      "language": "Malayalam",
+      "genre": "Mystery Drama",
+      "releaseYear": 2024,
+      "description": "In a remote village, the disappearance of a local girl unveils deep-seated secrets."
+    },
+    {
+      "id": 11,
+      "image": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC/et00420131-xcafvrmkfn-portrait.jpg",
+      "name": "Hello Mummy",
+      "language": "Malayalam",
+      "genre": "Comedy Horror",
+      "releaseYear": 2023,
+      "description": "A quirky family encounters bizarre supernatural events when their long-lost mother returns."
+    },
+    {
+      "id": 12,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqAtE4VRW_K2NUDc-wc0dS9tp_MvSYA9_WDA&s",
+      "name": "Pani",
+      "language": "Malayalam",
+      "genre": "Psychological Thriller",
+      "releaseYear": 2023,
+      "description": "A journalist uncovers a chilling conspiracy while investigating a mysterious cult."
+    },
+    {
+      "id": 13,
+      "image": "https://qqcdnpictest.mxplay.com/pic/281132c5448b213960af0677046803ee/en/2x3/312x468/test_pic1631851585744.webp",
+      "name": "Dragon Wars",
+      "language": "English",
+      "genre": "Fantasy Adventure",
+      "releaseYear": 2020,
+      "description": "Ancient dragons awaken as a prophecy unfolds in modern-day Los Angeles."
+    },
+    {
+      "id": 14,
+      "image": "https://filmfare.wwmindia.com/content/2024/oct/joker11727849847.jpg",
+      "name": "Jocker",
+      "language": "English",
+      "genre": "Psychological Drama",
+      "releaseYear": 2019,
+      "description": "A mentally ill man descends into madness, birthing an iconic villain."
+    },
+    {
+      "id": 15,
+      "image": "https://m.media-amazon.com/images/S/pv-target-images/ec9046b4f2b25d58ea8fb879f676c68978ee173ee93e7b109c6181ac7bea0304.jpg",
+      "name": "Theri",
+      "language": "Tamil",
+      "genre": "Action Drama",
+      "releaseYear": 2016,
+      "description": "A police officer in hiding must confront his past to protect his daughter from danger."
+    },
+    {
+      "id": 16,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuFJDOhRk31u90GLQNZjchKQbPAC_NXNRjLw&s",
+      "name": "Good Bad Ugly",
+      "language": "Tamil",
+      "genre": "Crime Thriller",
+      "releaseYear": 2023,
+      "description": "Three men with contrasting ideologies find their fates intertwined in a crime-ridden city."
+    },
+    {
+      "id": 17,
+      "image": "https://m.media-amazon.com/images/S/pv-target-images/ef222e4c367082c8f94315fbf5b62d350547c5e2589a97f12d5414979c64a9fc.jpg",
+      "name": "KGF chapter 2",
+      "language": "Kannada",
+      "genre": "Action",
+      "releaseYear": 2022,
+      "description": "Rocky continues his dominance in the gold mines while battling government and rivals."
+    },
+    {
+      "id": 18,
+      "image": "https://upload.wikimedia.org/wikipedia/en/8/84/Kantara_poster.jpeg",
+      "name": "Kantara",
+      "language": "Kannada",
+      "genre": "Mythological Action",
+      "releaseYear": 2022,
+      "description": "A man caught between tradition and modern law unearths divine secrets of his village."
+    }
+  ]
+}
