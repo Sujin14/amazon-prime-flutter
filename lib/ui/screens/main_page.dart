@@ -49,7 +49,7 @@ class _MainScreenState extends State<MainScreen> {
           style: const TextStyle(
             color: Colors.white,
             fontSize: 26,
-            fontWeight: FontWeight.bold, // Make the text bold
+            fontWeight: FontWeight.bold,
           ),
         ),
         actions: [
@@ -65,7 +65,10 @@ class _MainScreenState extends State<MainScreen> {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: const LinearGradient(
-                colors: [Colors.pink, Colors.deepPurple],
+                colors: [
+                  Color.fromARGB(255, 230, 10, 83),
+                  Color.fromARGB(255, 220, 111, 148),
+                ],
               ),
             ),
             child: const Icon(Icons.person, color: Colors.white, size: 20),

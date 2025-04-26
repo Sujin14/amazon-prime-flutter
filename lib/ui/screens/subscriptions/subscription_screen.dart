@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prime_video_clone/ui/widgets/subscriptions/hero_banner.dart';
+import 'package:prime_video_clone/common/hero_banner.dart';
 import 'package:prime_video_clone/ui/widgets/subscriptions/most_popular.dart';
 import 'package:prime_video_clone/ui/widgets/subscriptions/subscriptions_section.dart';
 

@@ -141,7 +141,7 @@ class SearchScreen extends StatelessWidget {
                 ),
                 onTap: () {},
               );
-            }).toList(),
+            }),
           ],
         ),
       ),
